@@ -40,10 +40,11 @@ int Q2Draw();
 int Q3Draw();
 int Q4Draw();
 int BringUpCatDraw();
-int EndCheck(int* Health, int* Feeling, int* Friendliness, int* Day);
+int EndCheck(int* Health, int* Feeling, int* Friendliness, int* Day, char* catName);
 void EndingGameOver();
 void EndingHappy(int** Day);
 void RaiseFriendliness(int* Health, int* Feeling, int* Friendliness);
+void EndingHospital(int** Day, char* catName);
 
 // 콘솔 텍스트 색상 변경해주는 함수
 void setColor(unsigned short text)
@@ -345,7 +346,7 @@ WalkingCat:;
 SleepCat:;
 
     RaiseFriendliness(&Health, &Feeling, &Friendliness);
-    EndCheck(&Health, &Feeling, &Friendliness, &Day);
+    EndCheck(&Health, &Feeling, &Friendliness, &Day, &catName);
     system("cls");
     printf(" \n");
     printf(" %s (이)야 자자\n", catName);
@@ -457,7 +458,7 @@ Q4:;
 #pragma endregion
 
 
-int EndCheck(int* Health, int* Feeling, int* Friendliness, int* Day)
+int EndCheck(int* Health, int* Feeling, int* Friendliness, int* Day, char* catName)
 {
     if (*Health <= 0 || *Feeling <= 0)
     {
@@ -471,7 +472,7 @@ int EndCheck(int* Health, int* Feeling, int* Friendliness, int* Day)
     }
     if (*Health >= 15)
     {
-        //EndingHospital();
+        EndingHospital(&Day, &catName);
     }
 
 

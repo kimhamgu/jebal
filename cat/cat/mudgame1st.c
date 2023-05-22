@@ -108,7 +108,7 @@ Menu:;
         if ((x <= 41 && x >= 30) && y == 10)
         {
             gotoxy(1, 1);
-            Q1();
+            goto Q1;
 
         }
 
@@ -255,39 +255,45 @@ BringUpCat:;
             system("cls");
             printf(" 밥을 먹인다.");
             Sleep(2000);
-            goto feeding;
+            feeding(&Health, &Feeling);
+            goto SleepCat;
         }
         else if (menuCode == 1)//간식
         {
             system("cls");
             printf(" 츄르를 준다.");
             Sleep(2000);
-            goto HavingSnack;
+            HavingSnack(&Health, &Feeling);
+            goto SleepCat;
         }
         else if (menuCode == 2)//놀아주기
         {
             system("cls");
             printf(" 장난감으로 놀아준다.");
             Sleep(2000);
-            goto PlayingCat;
+            PlayingCat(&Health, &Feeling);
+            goto SleepCat;
         }
         else if (menuCode == 3)//목욕
         {
             system("cls");
             printf(" 고양이 목욕은 2-3달에 한 번이 좋습니다.");
             Sleep(2000);
-            goto WashingCat;
+            WashingCat(&Health, &Feeling);
+            goto SleepCat;
         }
         else if (menuCode == 4)//산책
         {
             system("cls");
             printf(" 고양이는 산책을 좋아하지 않습니다.");
             Sleep(2000);
-            goto WalkingCat;
+            //goto WalkingCat;
+            WalkingCat(&Health, &Feeling);
+            goto SleepCat;
         }
     }
 
-feeding:;
+/*feeding:;
 
     system("cls");
     printf(" \n");
@@ -325,17 +331,17 @@ WashingCat:;
     Health -= 3;
     printf(" 기분이 10 내려갔습니다.\n 포만감이 3 내려갔습니다.\n");
     Sleep(2000);
-    goto SleepCat;
+    goto SleepCat;*/
 
-WalkingCat:;
-
-    system("cls");
-    printf(" \n");
-    Feeling -= 2;
-    Health -= 2;
-    printf(" 기분이 2 내려갔습니다.\n 포만감이 2 내려갔습니다.\n");
-    Sleep(2000);
-    goto SleepCat;
+//WalkingCat:;
+//
+//    system("cls");
+//    printf(" \n");
+//    Feeling -= 2;
+//    Health -= 2;
+//    printf(" 기분이 2 내려갔습니다.\n 포만감이 2 내려갔습니다.\n");
+//    Sleep(2000);
+//    goto SleepCat;
 
 SleepCat:;
 
@@ -348,6 +354,7 @@ SleepCat:;
     Sleep(2000);
     Day += 1;
     goto MapHouse;
+
 
 
 
@@ -639,6 +646,64 @@ Q4:;
 //    }
 //}
 
+
+
+void WalkingCat(int* Health, int* Feeling)
+{
+    system("cls");
+    printf(" \n");
+    *Feeling -= 2;
+    *Health -= 2;
+    printf(" 기분이 2 내려갔습니다.\n 포만감이 2 내려갔습니다.\n");
+    Sleep(2000);    
+}
+
+void feeding(int* Health, int* Feeling)
+{
+    system("cls");
+    printf(" \n");
+    *Health += 3;
+    printf(" 포만감이 3 올랐습니다.\n");
+    Sleep(2000);
+}
+
+
+
+
+void HavingSnack(int* Health, int* Feeling)
+{
+    system("cls");
+    printf(" \n");
+    *Feeling += 3;
+    *Health += 1;
+    printf(" 기분이 3 올랐습니다.\n 포만감이 1 올랐습니다.\n");
+    Sleep(2000);
+}
+
+
+
+
+void PlayingCat(int* Health, int* Feeling)
+{
+    system("cls");
+    printf(" \n");
+    *Feeling += 3;
+    *Health -= 3;
+    printf(" 기분이 3 올랐습니다.\n 포만감이 3 내려갔습니다.\n");
+    Sleep(2000);
+}
+
+
+
+void WashingCat(int *Health, int *Feeling)
+{
+    system("cls");
+    printf(" \n");
+    *Feeling -= 10;
+    *Health -= 3;
+    printf(" 기분이 10 내려갔습니다.\n 포만감이 3 내려갔습니다.\n");
+    Sleep(2000);
+}
 
 
 

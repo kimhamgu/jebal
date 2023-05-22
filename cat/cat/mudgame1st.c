@@ -34,17 +34,18 @@
 #pragma endregion
 
 int keyControl();
-int menuDraw();
+int MenuDraw();
 int Q1Draw();
 int Q2Draw();
 int Q3Draw();
 int Q4Draw();
 int BringUpCatDraw();
-int EndCheck(int* Health, int* Feeling, int* Friendliness, int* Day, char* catName);
-void EndingGameOver();
-void EndingHappy(int** Day);
+void EndCheck(int* Health, int* Feeling, int* Friendliness, int* Day, char* catName);
+EndingGameOver();
+EndingHappy(int** Day);
 void RaiseFriendliness(int* Health, int* Feeling, int* Friendliness);
-void EndingHospital(int** Day, char* catName);
+EndingHospital(int** Day, char** catName);
+int InfoDraw();
 
 // 콘솔 텍스트 색상 변경해주는 함수
 void setColor(unsigned short text)
@@ -65,8 +66,6 @@ int main()
     int Feeling = 5;
     int Day = 1;
     int Friendliness = 0;
-    /*int* pHealth;
-    pHealth = &Health;*/
 
     SetConsoleTitle(TEXT("with cat"));
     //system("color F0");
@@ -79,15 +78,32 @@ int main()
     CursorView(0);
     gotoxy(x, y);
 
+Menu:;
 
-    goto Q3;
-    //goto MapStreet;
-
-
-#pragma region Map 1. 길가에서 고양이 만남
+    while (1)
+    {
+        int menuCode = MenuDraw();
+        if (menuCode == 0)//게임시작
+        {
+            system("cls");
+            goto MapStreet;
+            
+        }
+        else if (menuCode == 1)//게임정보
+        {
+            system("cls");   
+            int menuCode = InfoDraw();
+            goto Menu;
+        }
+        else if (menuCode == 2)//종료
+        {
+            system("cls");
+            exit(1);        
+        }
+    }
 
     MapStreet : ;
-
+    printf("WSAD로 조작.");
     while (1)
     {
 
@@ -124,14 +140,9 @@ int main()
 
     }
 
-
-#pragma endregion
-
-
-#pragma region Map 2. 문
-
     MapDoor : ;
     x = 1;y = 2;
+    printf("WSAD로 조작.");
 
     while (1)
     {
@@ -181,7 +192,7 @@ int main()
 MapHouse:;
     system("cls");
     x = 1;y = 1;
-
+    printf("WSAD로 조작.");
 
     while (1)
     {
@@ -245,7 +256,6 @@ MapHouse:;
                 gotoxy(2, 27); printf("\033[0;32m목    욕  ");
                 gotoxy(2, 28); printf("\033[0;32m산    책  ");
             }
-
 
         }
 
@@ -329,6 +339,7 @@ WashingCat:;
     system("cls");
     printf(" \n");
     Feeling -= 10;
+    Health -= 3;
     printf(" 기분이 10 내려갔습니다.\n 포만감이 3 내려갔습니다.\n");
     Sleep(2000);
     goto SleepCat;
@@ -453,69 +464,11 @@ Q4:;
 
     }
 
-
 }
 #pragma endregion
 
 
-int EndCheck(int* Health, int* Feeling, int* Friendliness, int* Day, char* catName)
-{
-    if (*Health <= 0 || *Feeling <= 0)
-    {
-        EndingGameOver();
-        return 0;
-    }
-    if (*Health >= 10 && *Feeling >= 10 && *Friendliness >= 10)
-    {
-        EndingHappy(&Day);
-        return 0;
-    }
-    if (*Health >= 15)
-    {
-        EndingHospital(&Day, &catName);
-    }
 
-
-};
-
-void EndingGameOver()
-{
-
-    system("cls");
-    printf("\n\n\n\n\n\n\n\n\n\n\n\n");
-    printf("\t\t\t --------------------\n");
-    printf("\t\t\t|     GAME OVER      |\n");
-    printf("\t\t\t --------------------\n");
-    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n");
-
-
-    exit(1);
-};
-
-void EndingHappy(int** Day)
-{
-    system("cls");
-    printf("\n  Day %d\n", **Day);
-    printf("\n 고양이가 당신이 좋은 주인이라고 생각합니다.\n 이제 둘은 가족입니다.");
-    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    exit(1);
-};
-
-void EndingHospital(int** Day, char* catName)
-{
-    system("cls");
-    printf("\n  Day %d\n", **Day);
-    printf(" %s(이)가 살이 많이 쪄서 병원에 입원해야 합니다.\n", *catName);
-}
-
-void RaiseFriendliness(int* Health, int* Feeling, int* Friendliness)
-{
-    if (*Health >= 5 && *Feeling >= 10)
-    {
-        *Friendliness += 10;
-        printf("친밀도가 2 올랐습니다.\n");
-    }
-};
 
 
 

@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\cat",
+    "\\cat\\cat"
   ],
+  "SelectedNode": "\\cat\\cat\\mudgame1st.c",
   "PreviewInSolutionExplorer": false
 }

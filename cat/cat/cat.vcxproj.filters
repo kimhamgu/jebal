@@ -24,5 +24,8 @@
     <ClCompile Include="mudgame1st.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Ending&amp;Endcheck.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

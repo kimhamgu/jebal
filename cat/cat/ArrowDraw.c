@@ -291,10 +291,13 @@ int BringUpCatDraw()
 }
 
 
-int menuDraw()
+int MenuDraw()
 {
-    int x = 24;
-    int y = 12;
+    int x = 30;
+    int y = 20;
+
+    gotoxy(27, 10);
+    printf("[고양이 키우기]");
     gotoxy(x - 2, y);
     printf("> 게 임 시 작");
     gotoxy(x, y + 1);
@@ -308,7 +311,7 @@ int menuDraw()
         {
         case UP:
         {
-            if (y > 12)
+            if (y > 20)
             {
                 gotoxy(x - 2, y);
                 printf(" ");
@@ -320,7 +323,7 @@ int menuDraw()
 
         case DOWN:
         {
-            if (y < 14)
+            if (y < 22)
             {
                 gotoxy(x - 2, y);
                 printf(" ");
@@ -332,8 +335,39 @@ int menuDraw()
 
         case SUBMIT:
         {
-            return y - 12;
+            return y - 20;
         }
         }
     }
-}
+};
+
+int InfoDraw()
+{ 
+    printf("\n  안녕하세요. 고양이키우기 게임입니다.\n");
+    printf("  고양이의 욕구(포만감, 기분, 친밀도)를 충족 시키십시오.\n\n\n");
+    printf(" *집에서 왼쪽 하단에 있는 육성메뉴 설명.\n\n");
+    printf("  밥: 포만감 +3\n");
+    printf("  간식: 포만감 +1, 기분 +3\n");
+    printf("  놀아주기: 포만감 -3, 기분 +3\n");
+    printf("  목욕: 포만감 -3, 기분 -10\n");
+    printf("  산책: 포만감 -2, 기분 -2\n");
+    printf("  (친밀도는 포만감 5이상 기분 10이상일때 2씩 올라간다.)\n\n\n");
+
+    printf(" *3개의 엔딩\n\n");
+    printf("  게임 오버: 포만감 or 기분이 0이하일때\n");
+    printf("  해피 엔딩: 포만감, 기분, 친밀도 모두 10이상일때\n");
+    printf("  병원 엔딩: 포만감이 15이상일때\n\n\n\n");
+
+    printf("\t\t      [스페이스바 누르면 뒤로]");
+           
+    while (1)
+    {
+
+        if (keyControl() == SUBMIT)
+        {
+            system("cls");
+            break;
+        }
+
+    }
+};

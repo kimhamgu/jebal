@@ -1,5 +1,4 @@
-#include<stdio.h>
-#include<Windows.h>
+#include "main.h"
 
 //API: 응용프로그램을 개발하기 위한 함수의 집합.
 

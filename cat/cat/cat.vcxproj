@@ -23,6 +23,10 @@
     <ClCompile Include="ArrowDraw.c" />
     <ClCompile Include="Ending&amp;Endcheck.c" />
     <ClCompile Include="mudgame1st.c" />
+    <ClCompile Include="Relationship.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

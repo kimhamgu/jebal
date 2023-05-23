@@ -20,7 +20,7 @@ void EndCheck(int* Health, int* Feeling, int* Friendliness, int* Day, char* catN
 
 };
 
-EndingGameOver()
+void EndingGameOver()
 {
     system("cls");
     printf("\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -33,7 +33,7 @@ EndingGameOver()
     exit(1);
 };
 
-EndingHappy(int** Day)
+void EndingHappy(int** Day)
 {
     system("cls");
     printf("\n  Day %d\n", **Day);
@@ -42,7 +42,7 @@ EndingHappy(int** Day)
     exit(1);
 };
 
-EndingHospital(int** Day, char** catName)
+void EndingHospital(int** Day, char** catName)
 {
     system("cls");
     printf("\n  Day %d\n", **Day);

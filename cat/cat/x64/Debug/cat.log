@@ -1,1 +1,7 @@
-﻿  cat.vcxproj -> C:\Users\kimcy\Documents\GitHub\jebal\cat\x64\Debug\cat.exe
+﻿  mudgame1st.c
+C:\Users\kimcy\Documents\GitHub\jebal\cat\cat\mudgame1st.c(24,5): warning C4013: 'CursorView'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\kimcy\Documents\GitHub\jebal\cat\cat\mudgame1st.c(25,5): warning C4013: 'gotoxy'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\kimcy\Documents\GitHub\jebal\cat\cat\mudgame1st.c(269,62): warning C4047: '함수': 'char *'의 간접 참조 수준이 'char (*)[7]'과(와) 다릅니다.
+C:\Users\kimcy\Documents\GitHub\jebal\cat\cat\mudgame1st.c(269,54): warning C4024: 'EndCheck': 형식 및 실제 매개 변수 5의 형식이 서로 다릅니다.
+C:\Users\kimcy\Documents\GitHub\jebal\cat\cat\mudgame1st.c(5,9): warning C4101: 'answerNum' :참조되지 않은 지역 변수입니다.
+  cat.vcxproj -> C:\Users\kimcy\Documents\GitHub\jebal\cat\x64\Debug\cat.exe
